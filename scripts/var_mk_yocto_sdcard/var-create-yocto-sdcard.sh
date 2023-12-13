@@ -25,11 +25,14 @@ else
 		readonly YOCTO_BUILD=${YOCTO_ROOT}/build_xwayland
 	elif [[ -d "${YOCTO_ROOT}/build_wayland" ]]; then
 		readonly YOCTO_BUILD=${YOCTO_ROOT}/build_wayland
+	elif [[ -d "${YOCTO_ROOT}/build_wls" ]]; then
+		readonly YOCTO_BUILD=${YOCTO_ROOT}/build_wls
 	else
 		echo "Unable to find directory to set YOCTO_BUILD to, exiting"
 		exit 1
 	fi
-	readonly YOCTO_DEFAULT_IMAGE=fsl-image-gui
+	#readonly YOCTO_DEFAULT_IMAGE=fsl-image-gui
+	readonly YOCTO_DEFAULT_IMAGE=core-image-base
 fi
 echo "BSP type: ${BSP_TYPE}"
 
