@@ -1,0 +1,40 @@
+diff --git a/board/variscite/mx6var_som/mx6var_som.c b/board/variscite/mx6var_som/mx6var_som.c
+index f98a397248..6dcafe17b5 100644
+--- a/board/variscite/mx6var_som/mx6var_som.c
++++ b/board/variscite/mx6var_som/mx6var_som.c
+@@ -832,7 +832,7 @@ struct display_info_t const displays[] = {{
+ 		.name           = "VAR-WVGA",
+ 		.refresh        = 60,  /* optional */
+ 		.xres           = 800,
+-		.yres           = 480,
++		.yres           = 600,
+ 		.pixclock       = MHZ2PS(50),
+ 		.left_margin    = 40,
+ 		.right_margin   = 40,
+diff --git a/include/configs/mx6var_som.h b/include/configs/mx6var_som.h
+index 3708cad8ca..692c442bc6 100644
+--- a/include/configs/mx6var_som.h
++++ b/include/configs/mx6var_som.h
+@@ -188,13 +188,8 @@
+ 
+ #define VIDEO_ENV_SETTINGS \
+ 	"videoargs=" \
+-		"if hdmidet; then " \
+-			"setenv bootargs ${bootargs} " \
+-				"video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24; " \
+-		"else " \
+ 			"setenv bootargs ${bootargs} " \
+ 				"video=mxcfb0:dev=ldb; " \
+-		"fi; " \
+ 		"setenv bootargs ${bootargs} " \
+ 			"video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off;\0"
+ 
+@@ -204,7 +199,7 @@
+ 	NAND_BOOT_ENV_SETTINGS \
+ 	VIDEO_ENV_SETTINGS \
+ 	OPT_ENV_SETTINGS \
+-	"fdt_file=undefined\0" \
++	"fdt_file=imx6dl-var-som-solo-cap.dtb\0" \
+ 	"fdt_addr=0x18000000\0" \
+ 	"fdt_high=0xffffffff\0" \
+ 	"splashsourceauto=yes\0" \
