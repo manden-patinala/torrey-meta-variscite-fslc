@@ -1,0 +1,40 @@
+diff --git a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+index 2420e8a9ca1c..15b1728109f2 100644
+--- a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+@@ -78,6 +78,22 @@
+ 	pinctrl-0 = <&pinctrl_i2c3>;
+ 	status = "okay";
+ 
++	/* Touch */
++  	res_touch: ad7879@2c {
++		compatible = "adi,ad7879-1";
++		reg = <0x2c>;
++		pinctrl-names = "default";
++		interrupt-parent = <&gpio5>;
++		interrupts = <17 IRQ_TYPE_EDGE_FALLING>;
++		touchscreen-max-pressure = <4096>;
++		adi,resistance-plate-x = <250>;
++		adi,first-conversion-delay = /bits/ 8 <3>;
++		adi,acquisition-time = /bits/ 8 <1>;
++		adi,median-filter-size = /bits/ 8 <3>;
++		adi,averaging = /bits/ 8 <1>;
++		adi,conversion-interval = /bits/ 8 <255>;					
++  	};
++
+ 	/* Touch */
+ 	cap_touch: ft5x06_ts@38 {
+ 		compatible = "edt,edt-ft5x06";
+diff --git a/arch/arm/boot/dts/imx6qdl-var-som.dtsi b/arch/arm/boot/dts/imx6qdl-var-som.dtsi
+index 44de570a173b..bdbbb163a653 100644
+--- a/arch/arm/boot/dts/imx6qdl-var-som.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-var-som.dtsi
+@@ -235,7 +235,7 @@
+ 	status = "okay";
+ 
+ 	/* Touch */
+-	res_touch: ads7846@0 {
++	res_touch_spi: ads7846@0 {
+ 		reg = <0>;	/* CS0 */
+ 		compatible = "ti,ads7846";
+ 		pinctrl-names = "default";

@@ -1,10 +1,11 @@
-SRC_URI += "file://linux_wls.patch \
-	file://0001-touchscreen-inverted-x-testing.patch \
-	file://logo_linux_clut224.ppm \
-	file://defconfig \
+SRC_URI += "file://0004-enable-communication-between-som-and-mcu-display-adc-support.patch \
+    file://0003-device-driver-configuration-for-touch.patch \
+    file://0002-real-time-clock-support.patch \
+    file://0001-resistive-display-configuration-support.patch \
+    file://logo_linux_clut224.ppm \
 	"
 
-KBUILD_DEFCONFIG_var-som-mx6 = ""
+# KBUILD_DEFCONFIG_var-som-mx6 = ""
 
 do_configure() {
     # logo support, if you supply logo_linux_clut224.ppm in SRC_URI, then it's going to be used

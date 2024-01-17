@@ -1,0 +1,38 @@
+diff --git a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+index 15b1728109f2..701d1eedfa26 100644
+--- a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+@@ -199,7 +199,15 @@
+ 	status = "okay";
+ };
+ 
+-/* ttymxc2 UART */
++/* ttymxc1 UART Backdiplay adc*/
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart2>;
++	uart-has-rtscts;
++	status = "okay";
++};
++
++/* ttymxc2 UART Printer*/
+ &uart3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart3>;
+diff --git a/arch/arm/boot/dts/imx6qdl-var-som.dtsi b/arch/arm/boot/dts/imx6qdl-var-som.dtsi
+index bdbbb163a653..f5249b85e7ae 100644
+--- a/arch/arm/boot/dts/imx6qdl-var-som.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-var-som.dtsi
+@@ -581,10 +581,8 @@
+ 		/* Variscite Bluetooth */
+ 		pinctrl_uart2: uart2grp { /* RTS/CTS only mode */
+ 			fsl,pins = <
+-				MX6QDL_PAD_SD3_DAT4__UART2_RX_DATA	0x1b0b1
+-				MX6QDL_PAD_SD3_DAT5__UART2_TX_DATA	0x1b0b1
+-				MX6QDL_PAD_EIM_D28__UART2_CTS_B		0x1b0b1
+-				MX6QDL_PAD_EIM_D29__UART2_RTS_B		0x1b0b1
++				MX6QDL_PAD_EIM_D26__UART2_TX_DATA	  0x1b0b1
++				MX6QDL_PAD_EIM_D27__UART2_RX_DATA 	0x1b0b1
+ 			>;
+ 		};
+ 

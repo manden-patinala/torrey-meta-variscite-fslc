@@ -1,0 +1,31 @@
+diff --git a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+index 51cb8f4944b6..2420e8a9ca1c 100644
+--- a/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-var-mx6cb-misc.dtsi
+@@ -63,6 +63,13 @@
+ 		compatible = "fsl,imx6-hdmi-i2c";
+ 		reg = <0x50>;
+ 	};
++
++	/* isl1208 RTC */
++	isl1208: rtc@6f {
++		compatible = "isil,isl1208";
++		reg = <0x6f>;
++		
++	};
+ };
+ 
+ &i2c3 {
+@@ -81,12 +88,6 @@
+ 		interrupts = <7 0>;
+ 		status = "disabled";
+ 	};
+-
+-	/* DS1337 RTC module */
+-	rtc@68 {
+-		compatible = "dallas,ds1337";
+-		reg = <0x68>;
+-	};
+ };
+ 
+ &iomuxc {
