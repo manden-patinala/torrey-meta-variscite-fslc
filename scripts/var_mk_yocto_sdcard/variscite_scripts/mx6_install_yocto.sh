@@ -131,12 +131,15 @@ install_rootfs_to_nand()
 
 install_rootfs()
 {
-	if [[ $ROOTFS_DEV != "emmc" ]] ; then
-		install_rootfs_to_nand
-	else
-		/usr/bin/install_yocto_emmc.sh ${EMMC_EXTRA_ARGS}
-		set_fw_utils_to_sd_on_sd_card
-	fi
+	# if [[ $ROOTFS_DEV != "emmc" ]] ; then
+	# 	install_rootfs_to_nand
+	# else
+	# 	/usr/bin/install_yocto_emmc.sh ${EMMC_EXTRA_ARGS}
+	# 	set_fw_utils_to_sd_on_sd_card
+	# fi
+
+	install_rootfs_to_nand
+	/usr/bin/install_yocto_emmc.sh -b mx6cb
 }
 
 usage()

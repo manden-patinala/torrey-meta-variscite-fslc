@@ -286,15 +286,15 @@ else
 	create_parts
 fi
 format_rootfs_part
-install_rootfs
+# install_rootfs
 
-if [[ $is_dart == true ]] ; then
-	install_bootloader
-	if [[ $swupdate == 0 ]] ; then
-		format_boot_part
-		install_kernel
-	fi
-fi
+# if [[ $is_dart == true ]] ; then
+# 	install_bootloader
+# 	if [[ $swupdate == 0 ]] ; then
+# 		format_boot_part
+# 		install_kernel
+# 	fi
+# fi
 
 start_udev
 
